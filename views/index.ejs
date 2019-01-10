@@ -1,23 +1,36 @@
 <html>
-    <head>
-        <title>To Do App</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h2>A Simple To Do List App</h2>
-            <form action ="/addtask" method="POST">
-                <input type="text" name="newtask" placeholder="add new task">        
-                <button> Add Task </button>
-                <h2> Added Task </h2>
-                <% for( var i = 0; i < task.length; i++) { %>
-                    <li><%= task[i] %></li>
-                <% } %>
-                <button formaction="/removetask" type="submit"> Remove </button>
-            </form>
-            <h2>Completed Tasks</h2>
-        </div>
-    </body>
+<head>
+    <title>To Do App</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>A Simple To Do List App</h1>
+        <div class="form-container">
+
+        <form action ="/addtask" method="POST">
+            <input type="text" name="newtask" placeholder="add new task">        
+            <button> Add Task </button>
+            <h2> Added Task </h2>
+            <ul>
+            <% for( var i = 0; i < task.length; i++) { %>
+                <li><input type="checkbox" name="check" value="<%= task[i] %>"><%= task[i] %> </></li>
+            <% } %>
+            </ul>
+            <button formaction="/removetask" type="submit"> Remove </button>
+
+        </form>
+        <h2>Completed Tasks</h2>
+        <ul>
+        <% for( var i = 0; i < complete.length; i++) { %>
+            <li><input type="checkbox" name="check" checked> <%= complete[i] %> </></li>
+        <% } %>
+
+        </ul>
+    </div>
+
+    </div>
+</body>
 
 </html>
